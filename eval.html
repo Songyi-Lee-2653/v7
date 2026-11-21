@@ -253,7 +253,7 @@
         const rowAcc = rowSum ? ((cm[r.en][r.en] / rowSum) * 100).toFixed(1) + "%" : "-";
         html += `<tr><th>${r.ko} (${r.en})</th>`;
         CLASSES.forEach(c => {
-          const v = cm[r.en][c];
+          const v = cm[r.en][c.en];
           const clsName = v === 0 ? "" : (r.en === c.en ? "cm-diag" : "cm-err");
           html += `<td class="${clsName}">${v}</td>`;
         });
