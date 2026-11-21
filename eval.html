@@ -223,7 +223,7 @@
         `;
       });
 
-      // 2. 혼동행렬 표
+      // 2. 혼동행렬 표 (c -> c.en 수정 완료)
       let html = "<thead><tr><th>실제 \\ 예측</th>";
       CLASSES.forEach(c => { html += `<th>${c.ko}<br><small>${c.en}</small></th>`; });
       html += "<th>정분류율</th></tr></thead><tbody>";
@@ -233,7 +233,7 @@
         const rowAcc = rowSum ? ((cm[r.en][r.en] / rowSum) * 100).toFixed(1) + "%" : "-";
         html += `<tr><th>${r.ko} (${r.en})</th>`;
         CLASSES.forEach(c => {
-          const v = cm[r.en][c];
+          const v = cm[r.en][c.en];
           const clsName = v === 0 ? "" : (r.en === c.en ? "cm-diag" : "cm-err");
           html += `<td class="${clsName}">${v}</td>`;
         });
